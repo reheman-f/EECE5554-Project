@@ -1,0 +1,10 @@
+colcon build --packages-select vn_driver
+
+source install/setup.bash
+ros2 run vn_driver subscriber_imu.py 
+
+source install/setup.bash
+ros2 bag play square/square_0.mcap --remap /imu:=imu1
+
+source install/setup.bash
+ros2 bag play square/square_0.mcap --remap /imu:=imu2
